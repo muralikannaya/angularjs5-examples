@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="ourController">
+        <input type="text" ng-model="searchItems">
+        <p>{{message}}</p>
+        <button ng-click="check()">check it</button>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("ourController", function ($scope) {
+            $scope.searchItems = "";
+            $scope.message = "";
+
+            $scope.check = function () {
+                if ($scope.searchItems == "") {
+                    $scope.message = "please enter items";
+                }
+
+                var sizeOfItems = calculateItems($scope.searchItems);
+
+                if (sizeOfItems <= 0)  $scope.message = "please enter items";
+                if (sizeOfItems > 0 && sizeOfItems <= 3) $scope.message = " good";
+                if (sizeOfItems >= 3) $scope.message = "heavy";
+            }
+            function calculateItems(string) {
+                var searchItems = string.split(',');
+                return searchItems.length;
+            } ;
+        });
+    </script>
+</body>
+
+</html>

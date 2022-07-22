@@ -26,9 +26,7 @@
         </ul>
         <h1 ng-model="output">{{output}}</h1>
     </div>
-    <div class="card">
-        <div class="header">Men </div>
-    </div>
+   
 
     <script>
         var app = angular.module("myApp", []);
@@ -47,6 +45,7 @@
                     $scope.showData = false;
                 }
             };
+           
             $scope.addProducts = function () {
                 $scope.items.push($scope.addSearchItems);
                 // var letters = /^[A-Za-z]+$/;
