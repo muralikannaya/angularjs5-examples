@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <input type="text" ng-model="addSearchItems" ng-change="setFilter()">
+        <button ng-click="addProducts()" style="background-color: green;color : white">Add</button>
+        <ul style=" text-decoration : none;">
+            <li ng-show="showData" ng-repeat="x in items| filter: mur">
+                <button>{{x}} </button> <button ng-click="removeItem()"><span><i
+                            class="fa-solid fa-crosshairs"></i></span></button>
+            </li><br>
+
+        </ul>
+        <h1 ng-model="output">{{output}}</h1>
+    </div>
+    <div class="card">
+        <div class="header">Men </div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myController", function ($scope) {
+            $scope.items = ["bread", "milk", "butter"];
+            $scope.showData = false;
+
+            $scope.mur = { $: undefined };
+
+            $scope.setFilter = function () {
+                if ($scope.addSearchItems != "") {
+                    $scope.showData = true;
+                    $scope.mur = $scope.addSearchItems;
+                }
+                else {
+                    $scope.showData = false;
+                }
+            };
+            $scope.addProducts = function () {
+                $scope.items.push($scope.addSearchItems);
+                // var letters = /^[A-Za-z]+$/;
+                // var letters = $scope.items;
+                // const king = $scope.items.map(e => e.toLocaleLowerCase().include(addSearchItems));
+                //  console.log(king);
+
+                // if ($scope.addSearchItems.match(letters) ) {
+                //     $scope.items.push($scope.addSearchItems);
+                //     var letters = $scope.items;
+                // const king = $scope.items.map(e => e.toLocalLowerCase().include(addSearchItems));
+                //  console.log(king);
+                // } else {
+                //     $scope.output = "NOT OK!";
+                // }
+
+            };
+            $scope.removeItem = function (x) {
+                $scope.items.splice(x, 1);
+            }
+
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
