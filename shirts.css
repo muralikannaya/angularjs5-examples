@@ -1,0 +1,22 @@
+#itemcard {
+    box-shadow: 5px 5px 5px;
+    width: 180px;
+    margin-left: 20px;
+}
+
+#itemsbodyn {
+    width: 180px;
+    height: auto;
+}
+#shirtimg {
+    width: 180px;
+}
+#itemfooter {
+    width: 180px;
+}
+#likeicon {
+    padding-left: 42px;
+}
+#addbtn {
+    margin-left:  20px; ;
+}
