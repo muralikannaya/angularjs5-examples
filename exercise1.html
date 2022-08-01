@@ -13,6 +13,7 @@
     <div ng-app="myApp" ng-controller="ourController">
         <input type="text" ng-model="searchItems">
         <p>{{message}}</p>
+        <h2>{{sizeOfItems}}</h2>
         <button ng-click="check()">check it</button>
     </div>
     <script>
@@ -20,7 +21,7 @@
         app.controller("ourController", function ($scope) {
             $scope.searchItems = "";
             $scope.message = "";
-
+            
             $scope.check = function () {
                 if ($scope.searchItems == "") {
                     $scope.message = "please enter items";
