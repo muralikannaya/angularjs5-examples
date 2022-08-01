@@ -15,7 +15,7 @@
 <body ng-app="myApp" ng-controller="myController">
     <nav><button ng-click="openCart()"><i class="fa-solid fa-cart-shopping"></i> </button></nav>
     <p ng-show="openData">{{message}}</p>
-    <div id="itemcard" class="card" ng-model="cart">
+    <div ng-show="openData" id="itemcard" class="card" ng-model="cart">
         <div class="body" id="itemsbody" ><img id="shirtimg" src="./images/1.jpg" alt=""></div>
         <div class="footer" id="itemfooter" style="text-align: center;"><b>men's blue shirt</b>
         <p>Price &#x20b9; 350</p></div>

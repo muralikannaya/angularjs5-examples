@@ -4,13 +4,18 @@
 	
 	var app = angular.module('store', []);
 	
-	app.controller("StoreController", function(){
-		this.products = gems;
+	app.controller("StoreController", function($scope){
+
+		
+
+		this.products = productItems;
+		
+		
 	});
 	
 	var imgPath = "http://pre05.deviantart.net/e7cc/th/pre/f/2012/199/0/8/";
 	
-	var gems = [ 
+	var productItems = [ 
 		{
 			name : "Product 1",
 			price: "2.50",
@@ -25,7 +30,7 @@
 			description : "AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development. AngularJS is a toolset for building the framework most suited to your application development.",
 			canPurchase : true,
 			soldOut : false,
-			image : imgPath + "./images/1.jpg"
+			image : "./images/1.jpg"
 		},
 		{
 			name : "Product 3",
@@ -61,4 +66,5 @@
 			image : imgPath + "gem_png_by_doloresdevelde-d57oyqr.png"
 		}
 	]
+	
 })();

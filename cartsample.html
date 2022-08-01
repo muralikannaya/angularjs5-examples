@@ -41,8 +41,8 @@
                 <p>{{product.description | limitTo : 95}}</p>
                 <h3>{{product.price | currency}}</h3>
                 <button class="button sold-out" disabled ng-show="product.soldOut">Sold Out</button>
-                <button class="button" ng-show="product.canPurchase">Add to Cart</button>
-                
+                <button class="button" ng-click="addCart()" ng-show="product.canPurchase">Add to Cart</button>
+                <h1>{{Messages}}</h1>
                 <div class="panel" ng-show="tab === 1">
                 	<h2>Description</h2>
                     <p>{{product.description}}</p>
@@ -66,7 +66,19 @@
         <!--Item Wrap: ends-->
     
     </div>
-  <script src="./cartsample.js"></script>
+
+    <div  ng-repeat=" product in store.buyItemsCart  | orderBy: 'name'">
+
+        <h2>{{product.name | uppercase}}</h2>
+        <img class="thumb" ng-src="{{product.image}}" onclick="changeImage(this);" />
+        <span class="close-icon" onclick="closeImage(this);"></span>
+        <p>{{product.description | limitTo : 95}}</p>
+        <h3>{{product.price | currency}}</h3>
+
+
+    </div>
+
+  <script src="./cartsample.js "></script>
 </div>
     
 </body>
